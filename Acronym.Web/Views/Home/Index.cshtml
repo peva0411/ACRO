@@ -1,14 +1,18 @@
-﻿<div id="add-container">
+﻿<div ng-app='acronym'>
+    <div ng-view></div>
+</div>
+
+@*<div id="add-container">
     <form id="add-form">
         <input type="text" id="text" />
         <button id="add">Add!</button>
     </form>
 </div>
 
-<div id="test"></div>
+<div id="test"></div>*@
 
 @section scripts {
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(function () {
 
             function getAcronyms() {
@@ -44,5 +48,5 @@
 
             getAcronyms();
         })
-    </script>
+    </script>*@
 }

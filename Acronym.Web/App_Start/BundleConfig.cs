@@ -20,6 +20,22 @@ namespace Acronym.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                    "~/Scripts/angular.js",
+                    "~/Scripts/angular-route.js",
+                    "~/Scripts/angular-resource.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular-app").Include(
+                "~/Angular/app.js",
+                "~/Angular/Controllers/*.js",
+                "~/Angular/Models/*.js",
+                "~/Angular/Services/*.js"
+                //"~/Angular/Directives/*.js",
+                //"~/Angular/Filters/*.js",
+                
+            ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

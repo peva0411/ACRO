@@ -1,0 +1,8 @@
+﻿<form ng-submit="addAcronym()">
+    <input ng-model="addAcronymModel.acronym">
+    <button>Add!</button>
+</form>
+
+<div ng-repeat="acronym in acronyms">
+    {{acronym.acronymText}}
+</div>
