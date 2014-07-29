@@ -1,0 +1,48 @@
+﻿<div id="add-container">
+    <form id="add-form">
+        <input type="text" id="text" />
+        <button id="add">Add!</button>
+    </form>
+</div>
+
+<div id="test"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+
+            function getAcronyms() {
+                $.get('/api/Acronym', function (data) {
+                    console.log(data);
+
+                    var node = $("#test");
+                    node.empty();
+
+                    for (var i = 0; i < data.length; i++) {
+                        var acronym = data[i],
+                            id = acronym.id,
+                            text = acronym.acronymText;
+
+                        node.append($("<div>").text('id: ' + id + ', text: ' + text));
+                    }
+                });
+            }
+
+            $("#add-form").submit(function () {
+                $.ajax({
+                    url: '/api/Acronym',
+                    type: 'POST',
+                    data: { acronym: $("#text").val() },
+                    success: function() {
+                        getAcronyms();
+                    }
+                });
+
+                $("#text").val('');
+                return false;
+            });
+
+            getAcronyms();
+        })
+    </script>
+}
